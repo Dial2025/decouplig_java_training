@@ -1,9 +1,8 @@
 package fr.lernejo.guessgame;
-import java.util.Scanner;
 
 public interface Player {
 
-    long askNextGuess();
+    int askNextGuess();
     void respond(boolean lowerOrGreater);
 
 }

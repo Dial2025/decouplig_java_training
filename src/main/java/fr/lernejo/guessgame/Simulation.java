@@ -24,17 +24,17 @@ public class Simulation {
         int nombre= (int) player.askNextGuess();
 
         if(nombre == numberToGuess) {
-            logger.log("\nBravoo !! Vous avez la bonne réponse\n");
+            logger.log("\nbravo !! Vous avez trouvé bonne réponse\n");
             return true;
         }
 
         if(nombre < numberToGuess){
             player.respond(true);
-            logger.log("\nLe nombre est plus grand\n");
+            //logger.log("\nLe nombre est plus grand\n");
         }
         else{
             player.respond(false);
-            logger.log("\nLe nombre est plus petit\n");
+            //logger.log("\nLe nombre est plus petit\n");
         }
 
         return false;
@@ -54,9 +54,9 @@ public class Simulation {
         }
 
         if(nb_tours < nb_partiemax){
-            logger.log("\n Le nombre à deviner était le " + numberToGuess);
+            logger.log("\n Le nombre à deviner était le " + numberToGuess + "\n");
             temps = System.currentTimeMillis() - temps;
-            logger.log("\n Temps pour trouver : "+temps);
+            logger.log("\n Temps pour trouver : " + temps);
         }
         else{
             logger.log("\nMaximum de tours atteint. Le nombre etait le : " + numberToGuess);

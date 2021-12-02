@@ -1,9 +1,6 @@
 package fr.lernejo.guessgame;
 
-import fr.lernejo.logger.Logger;
-import fr.lernejo.logger.LoggerFactory;
 import java.security.SecureRandom;
-import java.util.Scanner;
 
 public class ComputerPlayer implements Player {
 
@@ -11,11 +8,11 @@ public class ComputerPlayer implements Player {
     private long max = Long.MAX_VALUE;
 
         @Override
-        public long askNextGuess() {
+        public int askNextGuess() {
 
             SecureRandom random = new SecureRandom();
             long randomNumber = random.nextInt(100); // génère un nombre entre 0 (inclus)
-            return randomNumber;
+            return (int) randomNumber;
         }
 
         private long middle() {

@@ -10,26 +10,25 @@ public class HumanPlayer implements Player{
         private final Logger logger = LoggerFactory.getLogger("player");
 
     @Override
-    public long askNextGuess() {
+    public int askNextGuess() {
         logger.log("Choisir un nombre : ");
-        do {
             Scanner scanner = new Scanner(System.in);
             try {
                 return scanner.nextInt();
             } catch (NumberFormatException e) {
-                logger.log("Veuillez rentrer un nombre !");
+                logger.log("\nVeuillez rentrer un nombre !\n");
             }
-        } while(true);
+        return 0;
     }
 
     @Override
     public void respond(boolean lowerOrGreater) {
         if(lowerOrGreater){
-            logger.log("C'est plus \n");
+            logger.log("C'est plus grand \n");
         }
         else
         {
-            logger.log("C'est moins\n");
+            logger.log("C'est plus petit \n");
         }
     }
 }

@@ -25,6 +25,7 @@ public class Launcher {
                 long nbr = Long.parseLong(args[1]);
                 simulation.initialize((int) nbr);
                 simulation.loopUntilPlayerSucceed(1000);
+
             } else {
                 System.out.println("Mauvais paramétrages");
             }
