@@ -21,27 +21,20 @@ public class Simulation {
     
     private boolean nextRound() {
 
-        int nombre;
-
-        //On récupère la valeur au clavier
-        Scanner clavier = new Scanner(System.in);
-        System.out.print("Saisissez un nombre : ");
-        nombre = clavier.nextInt();
-        // On ferme les ressources
-        clavier.close();
+        int nombre= (int) player.askNextGuess();
 
         if(nombre == numberToGuess) {
-            logger.log("Dommage, Le nombre est plus grand");
+            logger.log("\nBravoo !! Vous avez la bonne réponse\n");
             return true;
         }
 
         if(nombre < numberToGuess){
             player.respond(true);
-            logger.log("Dommage, Le nombre est plus grand");
+            logger.log("\nLe nombre est plus grand\n");
         }
         else{
             player.respond(false);
-            logger.log("Dommage, Le nombre est plus petit");
+            logger.log("\nLe nombre est plus petit\n");
         }
 
         return false;
@@ -52,6 +45,7 @@ public class Simulation {
 
         boolean vie = false;
         int nb_tours = 0;
+        long temps = System.currentTimeMillis();
 
         while(!vie && nb_tours < nb_partiemax)
         {
@@ -60,11 +54,13 @@ public class Simulation {
         }
 
         if(nb_tours < nb_partiemax){
-            logger.log("Bravo !!\n Le nombre à deviner était le " + numberToGuess);
+            logger.log("\n Le nombre à deviner était le " + numberToGuess);
+            temps = System.currentTimeMillis() - temps;
+            logger.log("\n Temps pour trouver : "+temps);
         }
         else{
-            logger.log("Maximum de tours atteint. Le nombre etait le : " + numberToGuess);
-            logger.log("Réessayer une prochaine fois :)");
+            logger.log("\nMaximum de tours atteint. Le nombre etait le : " + numberToGuess);
+            logger.log("\nRéessayer une prochaine fois :)");
         }
     }
 }
